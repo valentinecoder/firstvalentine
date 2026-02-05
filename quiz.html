@@ -6,31 +6,42 @@
   <title>Love Quiz 💞</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="center">
 
-<audio id="bgMusic" loop>
-  <source src="love.mp3" type="audio/mpeg">
-</audio>
-  
-<div class="card">
-  <h2>Love Quiz 💕</h2>
+  <!-- Background Music -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="love.mp3" type="audio/mpeg">
+  </audio>
 
-  <p id="question"></p>
-  <div id="options"></div>
-  <p id="feedback"></p>
+  <!-- Quiz Card -->
+  <div class="card">
+    <h2>Love Quiz 💕</h2>
 
-  <button id="nextBtn" onclick="nextQuestion()" style="display:none;">
-    Next 💖
-  </button>
+    <p id="progress"></p>
 
-  <div id="result" style="display:none;">
-    <h3 id="scoreText"></h3>
-    <button onclick="go('love-ai.html')">You Passed ❤️ Continue</button>
+    <p id="question"></p>
+    <div id="options"></div>
+
+    <p id="feedback"></p>
+
+    <button id="nextBtn" onclick="nextQuestion()" style="display:none;">
+      Next 💖
+    </button>
+
+    <button id="finishBtn" onclick="finishQuiz()" style="display:none;">
+      Finish Quiz 🎉
+    </button>
+
+    <!-- Result -->
+    <div id="result" style="display:none;">
+      <h3 id="scoreText"></h3>
+      <button onclick="go('love-ai.html')">
+        You Passed ❤️ Continue
+      </button>
+    </div>
   </div>
-</div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
