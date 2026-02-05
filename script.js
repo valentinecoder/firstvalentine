@@ -40,7 +40,6 @@ function toggleMusic() {
 
 document.addEventListener("DOMContentLoaded", () => {
   const music = document.getElementById("bgMusic");
-
   if (!music) return;
 
   // Restore playback position
@@ -49,17 +48,36 @@ document.addEventListener("DOMContentLoaded", () => {
     music.currentTime = parseFloat(savedTime);
   }
 
-  // Try autoplay
-  music.play().catch(() => {
-    // Autoplay blocked – wait for user interaction
-    const unlockMusic = () => {
-      music.play();
-      localStorage.setItem("musicAllowed", "yes");
-      document.removeEventListener("click", unlockMusic);
+  // Attempt autoplay
+  const playMusic = () => {
+    music.play().then(() => {
+      localStorage.setItem("musicAllowed", "true");
+    }).catch(() => {});
+  };
+
+  // Check if user already allowed music
+  if (localStorage.getItem("musicAllowed") === "true") {
+    playMusic();
+  } else {
+    // Wait for first interaction
+    const unlock = () => {
+      playMusic();
+      document.removeEventListener("click", unlock);
+      document.removeEventListener("touchstart", unlock);
     };
 
-    document.addEventListener("click", unlockMusic);
-  });
+    document.addEventListener("click", unlock);
+    document.addEventListener("touchstart", unlock);
+  }
+
+  // Save playback time continuously
+  setInterval(() => {
+    if (!music.paused) {
+      localStorage.setItem("musicTime", music.currentTime);
+    }
+  }, 500);
+});
+
 
   // Save time continuously
   setInterval(() => {
@@ -225,4 +243,5 @@ if (countdownEl) {
     countdownEl.innerText = `${d}d ${h}h ${m}m ${s}s`;
   }, 1000);
 }
+
 
