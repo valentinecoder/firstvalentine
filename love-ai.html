@@ -3,26 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Click on compliments 🤖❤️</title>
+  <title>Click on Compliments 🤖❤️</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="center">
 
-<audio id="bgMusic" loop>
-  <source src="love.mp3" type="audio/mpeg">
-</audio>
-  
-<div class="card">
-  <h2>I Have Compliments for You</h2>
-  <p id="loveText">Click generate 💕</p>
+  <!-- Background Music -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="love.mp3" type="audio/mpeg">
+  </audio>
 
-  <button onclick="generateLove()">Generate 💖</button>
-  <button onclick="go('date.html')">One Last Thing… 🎁</button>
-</div>
+  <!-- Content Card -->
+  <div class="card">
+    <h2>I Have Compliments for You 💕</h2>
 
-<script src="script.js"></script>
+    <p id="loveText" class="love-text">
+      Click generate 💖
+    </p>
+
+    <button onclick="generateLove()">
+      Generate 💘
+    </button>
+
+    <button onclick="go('date.html')">
+      One Last Thing… 🎁
+    </button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
