@@ -6,30 +6,25 @@
   <title>Restricted Access ❤️</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="center">
 
-  <!-- Background Music -->
-  <audio id="bgMusic" loop preload="auto">
-    <source src="love.mp3" type="audio/mpeg">
-  </audio>
+<audio id="bgMusic" loop>
+  <source src="love.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- Login Card -->
-  <div class="card">
-    <h1>Restricted Access 🔐</h1>
-    <p>This heart isn’t public property.</p>
+<div class="card">
+  <h1>Restricted Access 🔐</h1>
+  <p>This heart isn’t public property.</p>
 
-    <input id="name" placeholder="Your Nickname">
-    <input id="code" type="password" placeholder="Boyfriend's Name">
+  <input id="name" placeholder="Your Nickname">
+  <input id="code" type="password" placeholder="Boyfriend's Name">
 
-    <button onclick="login()">Unlock ❤️</button>
-    <p id="error" class="error"></p>
+  <button onclick="login()">Unlock ❤️</button>
+  <p id="error" class="error"></p>
+</div>
 
-    <button class="music-btn" onclick="document.getElementById('bgMusic').play()">
-      ▶ Play Music
-    </button>
-  </div>
+<button class="music-btn" onclick="toggleMusic()">🔊</button>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
