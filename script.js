@@ -1,212 +1,202 @@
-/* =========================
-   LOGIN LOGIC
-========================= */
-function login() {
-  const name = document.getElementById("name").value.toLowerCase();
-  const code = document.getElementById("code").value;
-
-  // 🔴 CHANGE THESE
-  if (name === "hername" && code === "secret") {
-    launchConfetti();
-    setTimeout(() => {
-      window.location.href = "welcome.html";
-    }, 1200);
-  } else {
-    document.getElementById("error").innerText =
-      "Access denied. This heart isn’t public property 😌";
-  }
-}
-
-/* =========================
-   NAVIGATION
-========================= */
-function go(page) {
-  window.location.href = page;
-}
-
-/* =========================
-   BACKGROUND MUSIC
-========================= */
-function toggleMusic() {
-  const music = document.getElementById("bgMusic");
-  if (!music) return;
-
-  if (music.paused) {
-    music.play();
-  } else {
-    music.pause();
-  }
-}
-
-/* =========================
-   FLOATING HEARTS
-========================= */
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerText = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 10 + 16 + "px";
-  document.body.appendChild(heart);
-
-  setTimeout(() => heart.remove(), 6000);
-}
-setInterval(createHeart, 900);
-
-/* =========================
-   CONFETTI
-========================= */
-function launchConfetti() {
-  for (let i = 0; i < 40; i++) {
-    const confetti = document.createElement("div");
-    confetti.innerText = "💖";
-    confetti.style.position = "fixed";
-    confetti.style.left = Math.random() * 100 + "vw";
-    confetti.style.top = "-20px";
-    confetti.style.fontSize = "24px";
-    confetti.style.animation = "floatDown 2s ease-out forwards";
-    document.body.appendChild(confetti);
-
-    setTimeout(() => confetti.remove(), 2000);
-  }
-}
-
-/* =========================
-   LOVE QUIZ (10 QUESTIONS)
-========================= */
-const quizData = [
-  { q: "Who fell first?", options: ["You 😏", "Me 😌"], answer: 0 },
-  { q: "Our love language?", options: ["Food 🍕", "Quality Time ❤️"], answer: 1 },
-  { q: "Who is always late?", options: ["You 😅", "Me 😬"], answer: 0 },
-  { q: "Best kind of date?", options: ["Movie night 🎬", "Talking till midnight 🌙"], answer: 1 },
-  { q: "Who steals food?", options: ["You 👀", "Me 🙃"], answer: 0 },
-  { q: "Who is more stubborn?", options: ["You 😤", "Me 🤐"], answer: 0 },
-  { q: "Our vibe together?", options: ["Soft & Sweet 💕", "Chaos but cute 😈"], answer: 1 },
-  { q: "Who says 'I miss you' more?", options: ["You 🥺", "Me 🥰"], answer: 1 },
-  { q: "Perfect evening?", options: ["Movies & snacks 🍿", "Just us talking ❤️"], answer: 1 },
-  { q: "Would you choose me again?", options: ["Always 💖", "Every lifetime ♾️"], answer: 1 }
-];
-
-let currentQ = 0;
-let score = 0;
-
-const questionEl = document.getElementById("question");
-const optionsEl = document.getElementById("options");
-const feedbackEl = document.getElementById("feedback");
-const nextBtn = document.getElementById("nextBtn");
-const resultEl = document.getElementById("result");
-const scoreText = document.getElementById("scoreText");
-
-function loadQuestion() {
-  const q = quizData[currentQ];
-  questionEl.innerText = `Q${currentQ + 1}. ${q.q}`;
-  optionsEl.innerHTML = "";
-  feedbackEl.innerText = "";
-  nextBtn.style.display = "none";
-
-  q.options.forEach((opt, i) => {
-    const btn = document.createElement("button");
-    btn.innerText = opt;
-    btn.onclick = () => selectAnswer(i);
-    optionsEl.appendChild(btn);
-  });
-}
-
-function selectAnswer(choice) {
-  const correct = quizData[currentQ].answer;
-
-  if (choice === correct) {
-    score++;
-    feedbackEl.innerText = "Correct 😏 You really know us ❤️";
-  } else {
-    feedbackEl.innerText = "Hmm… interesting choice 😂";
-  }
-
-  Array.from(optionsEl.children).forEach(btn => btn.disabled = true);
-  nextBtn.style.display = "block";
-}
-
-function nextQuestion() {
-  currentQ++;
-  if (currentQ < quizData.length) {
-    loadQuestion();
-  } else {
-    showResult();
-  }
-}
-
-function showResult() {
-  questionEl.style.display = "none";
-  optionsEl.style.display = "none";
-  feedbackEl.style.display = "none";
-  nextBtn.style.display = "none";
-
-  resultEl.style.display = "block";
-
-  let vibe = "";
-  if (score >= 8) vibe = "Elite Partner Level 💎";
-  else if (score >= 6) vibe = "Certified Lover 😌";
-  else vibe = "Still Passed… because I like you ❤️";
-
-  scoreText.innerText = `You scored ${score} / 10 🎉\n${vibe}`;
-}
-
-if (questionEl) loadQuestion();
-
-/* =========================
-   FAKE AI LOVE GENERATOR
-========================= */
-const loveNotes = [
-  "System update: You are still my favorite human.",
-  "Error 404: Tried to stop loving you. Failed.",
-  "Data analysis complete. I choose you.",
-  "Warning: Prolonged exposure to you causes happiness.",
-  "Result confirmed: It’s always been you ❤️"
-];
-
-function generateLove() {
-  document.getElementById("loveText").innerText =
-    loveNotes[Math.floor(Math.random() * loveNotes.length)];
-}
-
-/* =========================
-   RUNNING NO BUTTON
-========================= */
-const noBtn = document.getElementById("noBtn");
-if (noBtn) {
-  noBtn.addEventListener("mouseover", moveNo);
-  noBtn.addEventListener("touchstart", moveNo);
-}
-
-function moveNo() {
-  noBtn.style.position = "absolute";
-  noBtn.style.left = Math.random() * 70 + "vw";
-  noBtn.style.top = Math.random() * 70 + "vh";
-}
-
-/* =========================
-   COUNTDOWN TIMER
-========================= */
-const countdownEl = document.getElementById("countdown");
-
-if (countdownEl) {
-  // ⏰ SET DATE: Feb 14, 7:00 PM
-  const eventDate = new Date(2026, 1, 14, 19, 0, 0).getTime();
-
-  setInterval(() => {
-    const now = new Date().getTime();
-    const diff = eventDate - now;
-
-    if (diff <= 0) {
-      countdownEl.innerText = "It’s date time ❤️";
-      return;
+document.addEventListener("DOMContentLoaded", () => {
+  // =============================
+  // QUESTIONS (10 TOTAL)
+  // =============================
+  const questions = [
+    {
+      question: "What does HTML stand for?",
+      answers: [
+        { text: "Hyper Text Markup Language", correct: true },
+        { text: "High Text Machine Language", correct: false },
+        { text: "Hyperlinks Text Mark Language", correct: false },
+        { text: "Home Tool Markup Language", correct: false }
+      ]
+    },
+    {
+      question: "Which language is used for styling web pages?",
+      answers: [
+        { text: "HTML", correct: false },
+        { text: "JQuery", correct: false },
+        { text: "CSS", correct: true },
+        { text: "XML", correct: false }
+      ]
+    },
+    {
+      question: "Which is NOT a JavaScript data type?",
+      answers: [
+        { text: "Number", correct: false },
+        { text: "Boolean", correct: false },
+        { text: "Float", correct: true },
+        { text: "String", correct: false }
+      ]
+    },
+    {
+      question: "Which symbol is used for comments in JavaScript?",
+      answers: [
+        { text: "//", correct: true },
+        { text: "<!-- -->", correct: false },
+        { text: "#", correct: false },
+        { text: "**", correct: false }
+      ]
+    },
+    {
+      question: "How do you declare a variable in JavaScript?",
+      answers: [
+        { text: "var", correct: false },
+        { text: "let", correct: false },
+        { text: "const", correct: false },
+        { text: "All of the above", correct: true }
+      ]
+    },
+    {
+      question: "Which company developed JavaScript?",
+      answers: [
+        { text: "Google", correct: false },
+        { text: "Microsoft", correct: false },
+        { text: "Netscape", correct: true },
+        { text: "Apple", correct: false }
+      ]
+    },
+    {
+      question: "What does DOM stand for?",
+      answers: [
+        { text: "Document Object Model", correct: true },
+        { text: "Data Object Model", correct: false },
+        { text: "Digital Output Method", correct: false },
+        { text: "Desktop Oriented Mode", correct: false }
+      ]
+    },
+    {
+      question: "Which keyword stops a loop?",
+      answers: [
+        { text: "stop", correct: false },
+        { text: "break", correct: true },
+        { text: "exit", correct: false },
+        { text: "return", correct: false }
+      ]
+    },
+    {
+      question: "Which method selects an element by ID?",
+      answers: [
+        { text: "querySelector()", correct: false },
+        { text: "getElement()", correct: false },
+        { text: "getElementById()", correct: true },
+        { text: "selectById()", correct: false }
+      ]
+    },
+    {
+      question: "JavaScript runs primarily on the…",
+      answers: [
+        { text: "Server", correct: false },
+        { text: "Browser", correct: true },
+        { text: "Database", correct: false },
+        { text: "Compiler", correct: false }
+      ]
     }
+  ];
 
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const m = Math.floor((diff / (1000 * 60)) % 60);
-    const s = Math.floor((diff / 1000) % 60);
+  // =============================
+  // STATE
+  // =============================
+  let currentQuestionIndex = 0;
+  let score = 0;
+  let answered = false;
 
-    countdownEl.innerText = `${d}d ${h}h ${m}m ${s}s`;
-  }, 1000);
-}
+  // =============================
+  // ELEMENTS
+  // =============================
+  const questionEl = document.getElementById("question");
+  const answersEl = document.getElementById("answers");
+  const nextBtn = document.getElementById("next-btn");
+  const resultEl = document.getElementById("result");
+
+  // =============================
+  // LOAD QUESTION
+  // =============================
+  function loadQuestion() {
+    answered = false;
+    nextBtn.style.display = "none";
+    answersEl.innerHTML = "";
+
+    const currentQuestion = questions[currentQuestionIndex];
+    questionEl.textContent = `Question ${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+    currentQuestion.answers.forEach(answer => {
+      const btn = document.createElement("button");
+      btn.textContent = answer.text;
+      btn.classList.add("answer-btn");
+
+      btn.addEventListener("click", () => {
+        if (answered) return;
+        answered = true;
+
+        if (answer.correct) {
+          btn.classList.add("correct");
+          score++;
+        } else {
+          btn.classList.add("wrong");
+        }
+
+        // Show correct answer
+        Array.from(answersEl.children).forEach(b => {
+          if (
+            currentQuestion.answers.find(a => a.text === b.textContent).correct
+          ) {
+            b.classList.add("correct");
+          }
+          b.disabled = true;
+        });
+
+        nextBtn.style.display = "block";
+      });
+
+      answersEl.appendChild(btn);
+    });
+  }
+
+  // =============================
+  // NEXT / FINISH
+  // =============================
+  nextBtn.addEventListener("click", () => {
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+      loadQuestion();
+    } else {
+      showResults();
+    }
+  });
+
+  // =============================
+  // RESULTS
+  // =============================
+  function showResults() {
+    document.getElementById("quiz-container").style.display = "none";
+
+    const passed = score >= 7;
+
+    resultEl.innerHTML = `
+      <h2>🎉 Quiz Completed!</h2>
+      <p>Your Score: <strong>${score} / ${questions.length}</strong></p>
+      <p>${passed ? "🔥 You smashed it!" : "😅 Not bad, try again!"}</p>
+      ${
+        passed
+          ? `<button id="continue-btn">You passed, continue 🚀</button>`
+          : `<button onclick="location.reload()">Retry Quiz</button>`
+      }
+    `;
+
+    const continueBtn = document.getElementById("continue-btn");
+    if (continueBtn) {
+      continueBtn.addEventListener("click", () => {
+        alert("Welcome to the next level 😎");
+        // window.location.href = "nextpage.html";
+      });
+    }
+  }
+
+  // =============================
+  // INIT
+  // =============================
+  loadQuestion();
+});
