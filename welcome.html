@@ -6,24 +6,27 @@
   <title>Welcome 💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="center">
 
-<audio id="bgMusic" loop>
-  <source src="love.mp3" type="audio/mpeg">
-</audio> 
+  <!-- Background Music -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="love.mp3" type="audio/mpeg">
+  </audio>
 
-<button class="music-btn" onclick="toggleMusic()">🔊</button>
+  <!-- Music Toggle Button -->
+  <button class="music-btn" onclick="toggleMusic()" aria-label="Toggle music">
+    🔊
+  </button>
 
-<audio id="bgMusic" loop>
-  <source src="music/love.mp3" type="audio/mpeg">
-</audio>
+  <!-- Main Content -->
+  <div class="card">
+    <h1>Press the Play Button Before Reading 🎉</h1>
+    <h2>Cherry's Pamphlet ❤️</h2>
 
-<div class="card">
-  <h1> Press the Play Button Before Reading 🎉</h1>
-  <h2> Cherry's Pamphlet ❤️</h2>
-  <pre style="font-family: inherit; font-size: 1rem; color: #C62828;">
+    <pre class="poem">
 Dear Chinenye,
- 
+
 You're like a broken piece of me I didn't know I needed
 But when I found you, it's like a picture finally taken shape
 The way you love me, the way you look at me
@@ -32,7 +35,7 @@ I've never felt this way, the intensity of how I feel
 Now I love you purely
 You're like my faith because now I believed
 Even before I saw, you ignited something in me
- 
+
 I love you from my core
 And I want nothing more
 Just you, to share the same roof with you
@@ -42,16 +45,13 @@ And fall in love with you in different ways
 I want to hold you and make you feel safe
 
 Written by L with ❤️🤍
+    </pre>
 
-  </pre> 
-  <button onclick="go('quiz.html')">Let’s Play a Game 🎮</button>
-</div>
-  
-<script src="script.js"></script>
+    <button onclick="go('quiz.html')">
+      Let’s Play a Game 🎮
+    </button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
