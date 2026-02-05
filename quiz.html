@@ -9,17 +9,23 @@
 <body class="center">
 
   <div class="card">
-    <h2>How well do you know us? 💕</h2>
+    <h2>Love Quiz 💕</h2>
+    <p id="question"></p>
 
-    <p>Who fell first?</p>
-    <button onclick="answer()">You 😏</button>
-    <button onclick="answer()">Me 😌</button>
+    <div id="options"></div>
 
-    <p>Our love language?</p>
-    <button onclick="answer()">Food 🍕</button>
-    <button onclick="answer()">Quality Time ❤️</button>
+    <p id="feedback"></p>
 
-    <button onclick="go('love-ai.html')">Finish Quiz ❤️</button>
+    <button id="nextBtn" onclick="nextQuestion()" style="display:none;">
+      Next 💖
+    </button>
+
+    <div id="result" style="display:none;">
+      <h3 id="scoreText"></h3>
+      <button onclick="go('love-ai.html')">
+        You Passed ❤️ Continue
+      </button>
+    </div>
   </div>
 
 <script src="script.js"></script>
