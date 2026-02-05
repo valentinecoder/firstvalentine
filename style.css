@@ -1,5 +1,6 @@
 body {
-  font-family: Poppins, sans-serif;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
   background: #FFF8F5;
   color: #2E2E2E;
   height: 100vh;
@@ -12,13 +13,13 @@ body {
 }
 
 .card {
-  background: white;
+  background: #fff;
   padding: 30px;
-  border-radius: 12px;
   width: 90%;
   max-width: 400px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
 
 h1, h2 {
@@ -27,21 +28,65 @@ h1, h2 {
 
 input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin: 10px 0;
 }
 
 button {
-  background: #C62828;
-  color: white;
-  border: none;
+  width: 100%;
   padding: 12px;
   margin: 10px 0;
-  width: 100%;
-  border-radius: 8px;
+  background: #C62828;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 button:hover {
   background: #B71C1C;
+}
+
+.error {
+  color: #C62828;
+  font-size: 0.9rem;
+}
+
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  background: #F48FB1;
+}
+
+.countdown-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #C62828;
+}
+
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+@keyframes floatDown {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
 }
