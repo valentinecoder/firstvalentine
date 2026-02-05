@@ -1,15 +1,16 @@
 body {
   margin: 0;
   font-family: Poppins, sans-serif;
-  background: #FFF8F5;
+  background: linear-gradient(to bottom, #FFF0F5, #FFE4E1);
   color: #2E2E2E;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 .card {
@@ -38,10 +39,13 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: 0 4px 8px rgba(198,40,40,0.3);
+  transition: all 0.2s ease;
 }
 
 button:hover {
   background: #B71C1C;
+  box-shadow: 0 6px 12px rgba(198,40,40,0.4);
 }
 
 .error {
@@ -66,14 +70,39 @@ button:hover {
 }
 
 #options button {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+#options button:hover {
+  transform: scale(1.05);
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #C62828;
+  margin: 15px 0;
+}
+
+.love-text {
+  font-size: 1.1rem;
+  margin: 15px 0;
+  min-height: 60px;
+  transition: all 0.3s ease;
+  color: #C62828;
+  font-weight: 500;
 }
 
 .heart {
   position: fixed;
   bottom: -10px;
-  opacity: 0.6;
-  animation: floatUp 6s linear infinite;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: floatUp 6s linear forwards;
 }
 
 @keyframes floatUp {
@@ -88,4 +117,10 @@ button:hover {
     transform: translateY(100vh);
     opacity: 0;
   }
+}
+
+@media (max-width: 400px) {
+  .card { padding: 20px; }
+  input, button { padding: 10px; font-size: 0.95rem; }
+  .music-btn { width: 45px; height: 45px; font-size: 18px; }
 }
