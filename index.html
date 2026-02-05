@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Restricted Access ❤️</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="center">
+<body>
 
-  <div class="card">
-    <h1>Restricted Access 🔐</h1>
-    <p>This heart isn’t public property.</p>
+  <main class="app">
+    <section id="quiz-container">
+      <h1 class="title">Quick Quiz 🚀</h1>
+      <h2 id="question"></h2>
 
-    <input id="name" placeholder="Your name">
-    <input id="code" placeholder="Our secret code" type="password">
+      <div id="answers"></div>
 
-    <button onclick="login()">Unlock ❤️</button>
-    <p id="error" class="error"></p>
-  </div>
+      <button id="next-btn" class="hidden">Next</button>
+    </section>
 
-<script src="script.js"></script>
+    <section id="result" class="hidden"></section>
+  </main>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
