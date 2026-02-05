@@ -6,25 +6,19 @@
   <title>Welcome 💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="center">
 
-  <!-- Background Music -->
-  <audio id="bgMusic" loop preload="auto">
-    <source src="love.mp3" type="audio/mpeg">
-  </audio>
+<audio id="bgMusic" loop>
+  <source src="love.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- Music Toggle Button -->
-  <button class="music-btn" onclick="toggleMusic()" aria-label="Toggle music">
-    🔊
-  </button>
+<button class="music-btn" onclick="toggleMusic()">🔊</button>
 
-  <!-- Main Content -->
-  <div class="card">
-    <h1>Press the Play Button Before Reading 🎉</h1>
-    <h2>Cherry's Pamphlet ❤️</h2>
+<div class="card">
+  <h1>Press the Play Button Before Reading 🎉</h1>
+  <h2>Cherry's Pamphlet ❤️</h2>
 
-    <pre class="poem">
+  <pre>
 Dear Chinenye,
 
 You're like a broken piece of me I didn't know I needed
@@ -45,13 +39,11 @@ And fall in love with you in different ways
 I want to hold you and make you feel safe
 
 Written by L with ❤️🤍
-    </pre>
+  </pre>
 
-    <button onclick="go('quiz.html')">
-      Let’s Play a Game 🎮
-    </button>
-  </div>
+  <button onclick="go('quiz.html')">Let’s Play a Game 🎮</button>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
