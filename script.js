@@ -1,8 +1,8 @@
 // =======================
 // CONFIG — EDIT THESE
 // =======================
-const VALID_NAME = "hername"; // lowercase
-const VALID_CODE = "secret";
+const VALID_NAME = "cherry"; // lowercase
+const VALID_CODE = "L";
 
 // =======================
 // LOGIN
@@ -105,13 +105,13 @@ function launchConfetti() {
 // LOVE QUIZ (10 QUESTIONS)
 // =======================
 const quizData = [
-  { q: "Who fell first?", o: ["You 😏", "Me 😌"], a: 0 },
+  { q: "Who fell first?", o: ["You 😏", "Me 😌"], a: 1 },
   { q: "Our love language?", o: ["Food 🍕", "Quality Time ❤️"], a: 1 },
-  { q: "Who is always late?", o: ["You 😅", "Me 😬"], a: 0 },
-  { q: "Best kind of date?", o: ["Movie 🎬", "Deep talks 🌙"], a: 1 },
+  { q: "My Birth Month and Zodiac", o: ["September Virgo", "September Libra"], a: 1 },
+  { q: "Our First Date?", o: ["Ebony Life Cinema", "Hua Han Restaurant🌙"], a: 1 },
   { q: "Who steals food?", o: ["You 👀", "Me 🙃"], a: 0 },
-  { q: "Who is stubborn?", o: ["You 😤", "Me 😇"], a: 0 },
-  { q: "Our vibe?", o: ["Soft 💕", "Cute chaos 😈"], a: 1 },
+  { q: "Who eats once in two years?", o: ["You 😤", "Me 😇"], a: 1 },
+  { q: "Our Anniversary", o: ["December 5th 💕", "October 19th 😈"], a: 0 },
   { q: "Who texts first?", o: ["You 🥺", "Me 🥰"], a: 1 },
   { q: "Perfect night?", o: ["Netflix 🍿", "Just us ❤️"], a: 1 },
   { q: "Choose me again?", o: ["Always 💖", "Every lifetime ♾️"], a: 1 }
@@ -279,4 +279,5 @@ function explodeHeart() {
     }
   }, 600);
 }
+
 
