@@ -228,3 +228,10 @@ if (countdownEl) {
     countdownEl.innerText = `${d}d ${h}h ${m}m ${s}s`;
   }, 1000);
 }
+
+function acceptDate() {
+  launchConfetti();
+  setTimeout(() => {
+    window.location.href = "valentine.html";
+  }, 800);
+}
