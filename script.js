@@ -173,7 +173,7 @@ function showResult() {
     score >= 6 ? "Certified Lover 😌" :
     "Passed… because I like you ❤️";
 
-  scoreText.innerText = `You scored ${score}/10 🎉\n${label}`;
+  scoreText.innerText = `You scored ${score}/10 😊😊😊😊Oya send me screenshot🎉\n${label}`;
 }
 
 if (qEl) loadQuestion();
@@ -279,5 +279,6 @@ function explodeHeart() {
     }
   }, 600);
 }
+
 
 
